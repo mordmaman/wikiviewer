@@ -1,12 +1,27 @@
 $( document ).ready(function() {
     console.log( "ready!" );
-    $("#random").click(function(){
-                $.get("https://en.wikipedia.org/w/api.php?action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=json&callback=?",function(data){
+
+    $('#article').click(function(){
+        console.log("clicked");
+
+            $.ajax({
+            type: "GET",
+            url: "http://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&page=Jimi_Hendrix&callback=?",
+            contentType: "application/json; charset=utf-8",
+            async: false,
+            dataType: "json",
+            success: function (data, textStatus, jqXHR) {
                 console.log(data);
-                });
-        // $.getJSON("https://en.wikipedia.org/wiki/Special:Random", function(json) {
-        // console.log(html(JSON.stringify(json)));
+            },
+            error: function (errorMessage) {
+            }
+        });
     });
+
+     
+
+  
+
 });
 
 // $.getJSON("/json/cats.json", function(json) {
