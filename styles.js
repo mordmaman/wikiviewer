@@ -1,7 +1,7 @@
 $( document ).ready(function() {
     console.log( "ready!" );
     $("#random").click(function(){
-                $.getJSON("https://en.wikipedia.org/wiki/Special:Random&callback=?",function(data){
+                $.get("https://en.wikipedia.org/w/api.php?action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=json&callback=?",function(data){
                 console.log(data);
                 });
         // $.getJSON("https://en.wikipedia.org/wiki/Special:Random", function(json) {
